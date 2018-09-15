@@ -18,7 +18,7 @@
     <param name="max_a_linear" value="999.0"/>
     <param name="max_a_theta" value="999.0"/>
 
-    <param name="max_v_linear" value="1.0"/>
+    <param name="max_v_linear" value="10.0"/>
     <param name="max_v_theta" value="1.57"/>
 
     <param name="rate" value="100"/>
@@ -151,5 +151,14 @@
     <rosparam file="$(find simulation_launch)/param/dwa_local_planner_params.yaml" command="load" ns="DWAPlannerROS"/>
   </node>
 
+  <node name="keyboard_control" pkg="autolabor_keyboard_control" type="keyboard_control_node">
+    	<param name="linear_min" value="0.2" />
+    	<param name="linear_max" value="2.0" />
+    	<param name="linear_step" value="0.2" />
+
+    	<param name="angular_min" value="0.5" />
+    	<param name="angular_max" value="3.0" />
+    	<param name="angular_step" value="0.5" />
+    </node>
   <!--<node pkg="tf" type="static_transform_publisher" name="map_to_odom" args="0.0 0.0 0.0 0.0 0.0 0.0 /odom /map 10" />-->
 </launch>
