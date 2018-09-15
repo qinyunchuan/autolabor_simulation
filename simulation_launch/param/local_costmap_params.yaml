@@ -1,7 +1,7 @@
 # ns : local_costmap
 
 # The global frame for the costmap to operate in. (string, default: "/map")
-global_frame: map
+global_frame: /map
 
 # The name of the frame for the base link of the robot.(string, default: "base_link")
 robot_base_frame: base_link
@@ -31,8 +31,10 @@ always_send_full_costmap: false
 
 # Sequence of plugin specifications, one per layer. Each specification is a dictionary with name and type fields. The name is used to define the parameter namespace for the plugin.
 plugins:
+  - {name: static_layer,         type: "costmap_2d::StaticLayer"}
   - {name: obstacle_layer,          type: "costmap_2d::ObstacleLayer"}
   - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+
 
 # The width of the map in meters.(int, default: 10)
 width: 5.0
